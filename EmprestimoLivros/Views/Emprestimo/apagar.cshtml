@@ -1,0 +1,40 @@
+﻿@model EmprestimoLivros.Models.EmprestimosModel
+@{
+    ViewData["Title"] = "Apagar Empréstimo";
+}
+<div class="container bg-dark p-5 rounded-5">
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Apagar Empréstimo</h1>
+    </div>
+    <h1 class="text-light">Tem a certeza que quer Apagar este registo?</h1>
+    <form method="post" asp-controller="emprestimo" asp-action="apagar">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label for="Alugou" class="form-label text-light">Alugou</label>
+            <input type="text" class="form-control text-light" asp-for="Alugou" id="Alugou" placeholder="Quem está a alugar o livro" disabled>
+            <span asp-validation-for="Alugou" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="Emprestou" class="form-label text-light">Emprestou</label>
+            <input type="text" class="form-control text-light" asp-for="Emprestou" id="Emprestou" placeholder="Quem está emprestar o livro" disabled>
+            <span asp-validation-for="Emprestou" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="Livro" class="form-label text-light">Livro</label>
+            <input type="text" class="form-control text-light" asp-for="Livro" id="Livro" placeholder="Nome do livro" disabled>
+            <span asp-validation-for="Livro" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Apagar Empréstimo</button>
+            <a asp-action="Index" asp-controller="emprestimo" class="btn btn-primary w-50">Voltar</a>
+        </div>
+
+
+    </form>
+</div>
+
